@@ -133,21 +133,40 @@ module.exports = {
 		"test": /\.html$/,
 		"loader": "raw-loader"
 	  },
+    { 
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      include: [/font-awesome/],
+      loader: "url-loader?limit=10000&mimetype=application/font-woff" 
+    },
+    {
+      test   : /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      include: [/font-awesome/],
+      loader : 'file-loader?name=fonts/[name].[hash:20].[ext]&limit=10000'
+    },
+    {
+    "test": /\.(eot)$/,
+    "exclude": [/font-awesome/],
+    "loader": "file-loader?name=[name].[hash:20].[ext]"
+    },
+    {
+      "test": /\.svg$/,
+      "exclude": [
+        /src[\\\/]app[\\\/]components[\\\/]generic[\\\/]carousel[\\\/]images/,
+        /font-awesome/
+      ],
+      "loader": 'svg-sprite-loader'
+    }, 
+    {
+      "test": /\.svg$/,
+      "include": [
+        /src[\\\/]app[\\\/]components[\\\/]generic[\\\/]carousel[\\\/]images/,
+        /font-awesome/
+      ],
+      "loader": 'file-loader'
+    },
 	  {
-		"test": /\.(eot)$/,
-		"loader": "file-loader?name=[name].[hash:20].[ext]"
-	  },
-		{
-			"test": /\.svg$/,
-			"exclude": [/src[\\\/]app[\\\/]components[\\\/]generic[\\\/]carousel[\\\/]images/],
-			"loader": 'svg-sprite-loader'
-		}, {
-			"test": /\.svg$/,
-			"include": [/src[\\\/]app[\\\/]components[\\\/]generic[\\\/]carousel[\\\/]images/],
-			"loader": 'file-loader'
-		},
-	  {
-		"test": /\.(jpg|png|gif|otf|ttf|woff|woff2|cur|ani)$/,
+		"test": /\.(jpg|png|gif|otf|ttf|woff(2)?|cur|ani)$/,
+    "exclude": [/font-awesome/],
 		"loader": "url-loader?name=[name].[hash:20].[ext]&limit=10000"
 	  },
 	  {

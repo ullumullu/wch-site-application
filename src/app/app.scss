@@ -17,6 +17,9 @@
 @import '~foundation-sites/scss/foundation';
 @import '~video.js/dist/video-js.css';
 
+$fa-font-path : '../../node_modules/font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome.scss';
+
 @include foundation-everything;
 
 html, body {

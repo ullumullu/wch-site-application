@@ -43,6 +43,8 @@ import { GenericLayoutModule } from './components/generic/generic.layout.module'
 import { ArticleBodyImageComponent } from './components/article-body-image/article-body-image.component';
 import { DesignArticleSummaryComponent } from './layouts/design-article-summary/design-article-summary.component';
 
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
+
 const pageRoutes: Routes = [
 	{path: '', redirectTo: '/home', pathMatch: 'full'},
 	{path: '**', component: PageComponent}
@@ -50,6 +52,7 @@ const pageRoutes: Routes = [
 
 @NgModule({
 	imports: [
+    AngularFontAwesomeModule,
 		RouterModule.forRoot(pageRoutes, {useHash: true}),
 		BrowserModule,
 		FormsModule,
